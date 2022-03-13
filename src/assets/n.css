@@ -401,7 +401,7 @@ html[data-w-dynpage] [data-w-cloak] {
     vertical-align:middle !important
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5 {
     font-weight: bold;
     margin-bottom:10px
 }
@@ -433,12 +433,6 @@ h4 {
 h5 {
     font-size: 14px;
     line-height: 20px;
-    margin-top:10px
-}
-
-h6 {
-    font-size: 12px;
-    line-height: 18px;
     margin-top:10px
 }
 
@@ -2397,7 +2391,6 @@ textarea.w-input, textarea.w-select {
 
 body {
     font-family: Satoshi, sans-serif;
-    color: #d3dbe2;
     font-size: 17px;
     font-weight: 400;
 }
@@ -2406,7 +2399,6 @@ h1 {
     margin-top: 20px;
     margin-bottom: 15px;
     font-family: Ppneuemontreal, sans-serif;
-    color: #edf2f6;
     font-size: 60px;
     line-height: 1.05;
     font-weight: 500;
@@ -2416,7 +2408,6 @@ h2 {
     margin-top: 10px;
     margin-bottom: 10px;
     font-family: Ppneuemontreal, sans-serif;
-    color: #edf2f6;
     font-size: 40px;
     line-height: 1.1;
     font-weight: 500;
@@ -2424,7 +2415,6 @@ h2 {
 
 h3 {
     font-family: Ppneuemontreal, sans-serif;
-    color: #edf2f6;
     font-size: 30px;
     line-height: 1.2;
     font-weight: 500;
@@ -2434,7 +2424,6 @@ h4 {
     margin-top: 10px;
     margin-bottom: 10px;
     font-family: Ppneuemontreal, sans-serif;
-    color: #edf2f6;
     font-size: 23px;
     line-height: 1.2;
     font-weight: 500;
@@ -2443,18 +2432,9 @@ h4 {
 h5 {
     margin-top: 10px;
     margin-bottom: 10px;
-    color: #edf2f6;
     font-size: 17px;
     line-height: 1.2;
     font-weight: 700;
-}
-
-h6 {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 16px;
-    line-height: 28px;
-    font-weight: 500;
 }
 
 p {
@@ -2465,8 +2445,8 @@ p {
 }
 
 a {
-    color: #00e3b4;
-    text-decoration: underline;
+    color: #1890ff;
+    /*text-decoration: underline;*/
 }
 
 ul {
@@ -10907,7 +10887,7 @@ figcaption {
     border-width: 1px;
     border-color: rgba(211, 219, 226, 0.15);
     border-radius: 10px;
-    background-color: #001d32;
+    background-color: #fff;
 }
 
 .pricing-card.standard {
@@ -12077,8 +12057,8 @@ figcaption {
     margin-top: 30px;
     padding: 10px 20px;
     border-radius: 1000px;
-    background-color: #00e3b4;
-    color: #121212;
+    background-color: #1890ff;
+    color: #fff;
     font-size: 17px;
     font-weight: 700;
     text-align: center;
@@ -12253,7 +12233,7 @@ figcaption {
     align-items: center;
     border-style: solid;
     border-width: 1.5px;
-    border-color: rgba(237, 242, 246, 0.4);
+    border-color: #bfbfbf;
     border-radius: 100px;
 }
 
@@ -13170,7 +13150,7 @@ figcaption {
 .faq-column.last {
     padding-right: 0px;
     padding-left: 40px;
-    border-left: 1px solid rgba(211, 219, 226, 0.15);
+    border-left: 1px solid #d9d9d9;
 }
 
 .faq-heading {
@@ -13240,7 +13220,7 @@ figcaption {
     background-color: transparent;
     -webkit-transition: color 200ms ease, background-position 200ms ease;
     transition: color 200ms ease, background-position 200ms ease;
-    color: #edf2f6;
+    color: #141414;
     font-size: 17px;
     font-weight: 700;
     text-align: center;
@@ -13627,7 +13607,7 @@ figcaption {
     margin-bottom: 60px;
     border-style: solid;
     border-width: 1px;
-    border-color: rgba(211, 219, 226, 0.15);
+    border-color: #d9d9d9;
     border-radius: 10px;
 }
 
@@ -13639,7 +13619,7 @@ figcaption {
     -webkit-transition: opacity 200ms ease;
     transition: opacity 200ms ease;
     font-family: Ppneuemontreal, sans-serif;
-    color: #edf2f6;
+    color: #141414;
     font-size: 25px;
     font-weight: 500;
 }
@@ -13649,8 +13629,8 @@ figcaption {
 }
 
 .pricing-tab-link.w--current {
-    background-color: #00e3b4;
-    color: #121212;
+    background-color: #1890ff;
+    color: #fff;
     font-weight: 500;
     cursor: default;
 }
@@ -13665,7 +13645,7 @@ figcaption {
     grid-row-gap: 20px;
     grid-template-areas: ".";
     -ms-grid-columns: 1fr 20px 1fr 20px 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     -ms-grid-rows: auto;
     grid-template-rows: auto;
 }
@@ -13739,7 +13719,7 @@ figcaption {
 
 .pricing-big-text {
     font-family: Ppneuemontreal, sans-serif;
-    color: #edf2f6;
+    color: #141414;
     font-size: 50px;
     line-height: 1.2;
     font-weight: 500;
@@ -13763,8 +13743,8 @@ figcaption {
     justify-content: center;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    background-color: #00e3b4;
-    color: #121212;
+    background-color: #1890ff;
+    color: #fff;
     font-weight: 700;
     text-align: center;
     text-transform: uppercase;
@@ -14532,7 +14512,6 @@ figcaption {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
-    color: rgba(211, 219, 226, 0.6);
     font-size: 15px;
 }
 
@@ -14733,7 +14712,7 @@ figcaption {
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
     border-radius: 5px;
-    background-color: #082235;
+    background-color: #f0f0f0;
 }
 
 .side-container.side-cta {
@@ -14858,8 +14837,8 @@ figcaption {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
-    border-top: 1px solid rgba(211, 219, 226, 0.15);
-    border-bottom: 1px solid rgba(211, 219, 226, 0.15);
+    border-top: 1px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9;
 }
 
 .article-info-bar.bottom {
@@ -15048,13 +15027,13 @@ figcaption {
     border-radius: 5px;
     -webkit-transition: background-color 200ms ease;
     transition: background-color 200ms ease;
-    color: #d3dbe2;
+    color: #595959;
     font-weight: 400;
     text-decoration: none;
 }
 
 .related-article-link:hover {
-    background-color: #082235;
+    background-color: #F0F0F0;
 }
 
 .related-article-image {
@@ -15931,13 +15910,14 @@ figcaption {
     border-radius: 5px;
     -webkit-transition: opacity 200ms ease, background-color 200ms ease;
     transition: opacity 200ms ease, background-color 200ms ease;
-    color: #d3dbe2;
+    color: #8c8c8c;
     font-weight: 400;
     text-decoration: none;
 }
 
 .thumbnail-link:hover {
-    background-color: #082235;
+    background-color: #eee;
+    color: #8c8c8c;
 }
 
 .thumbnail-link:active {
