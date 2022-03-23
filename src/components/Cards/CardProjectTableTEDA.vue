@@ -5,7 +5,7 @@
 		<template #title>
 			<a-row type="flex" align="middle">
 				<a-col :span="24" :md="12">
-					<h6 class="font-semibold m-0">Gas费支出账号</h6>
+					<h6 class="font-semibold m-0">ETH2 锁仓地址排名</h6>
 				</a-col>
 				<a-col :span="24" :md="12" style="display: flex; align-items: center; justify-content: flex-end">
 					<p>更新于 33分钟前</p>
@@ -14,12 +14,12 @@
 		</template>
 		<a-table :columns="columns" :data-source="data" size="small" :pagination="{'show-total':(total, range) => `目前${range[0]}-${range[1]} 总${total}个`}">
 
-			<template slot="company" slot-scope="company">
-				<h6 class="m-0">
-					<img :src="company.logo" width="25" style="margin-right: 10px;">
-					{{ company.name }}
-				</h6>
-			</template>
+      <template slot="company" slot-scope="company">
+        <h6 class="m-0">
+          <img :src="company.logo" width="25" style="margin-right: 10px;">
+          {{ company.name }}
+        </h6>
+      </template>
 
 			<template slot="completion" slot-scope="completion">
 				<div class="progress-right">

@@ -54,6 +54,12 @@ let routes = [
 		component: () => import('../views/GasTracker.vue'),
 	},
 	{
+		path: '/eth-deposit-contract',
+		name: 'ETH锁仓量',
+		layout: "dashboard",
+		component: () => import('../views/ETHDepositContract.vue'),
+	},
+	{
 		path: '/layout',
 		name: 'Layout',
 		layout: "dashboard",

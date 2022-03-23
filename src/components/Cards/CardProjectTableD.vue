@@ -5,28 +5,20 @@
 		<template #title>
 			<a-row type="flex" align="middle">
 				<a-col :span="24" :md="12">
-					<h6 class="font-semibold m-0">Gas费支出账号</h6>
+					<h6 class="font-semibold m-0" >{{title}}</h6>
 				</a-col>
 				<a-col :span="24" :md="12" style="display: flex; align-items: center; justify-content: flex-end">
 					<p>更新于 33分钟前</p>
 				</a-col>
 			</a-row>
 		</template>
-		<a-table :columns="columns" :data-source="data" size="small" :pagination="{'show-total':(total, range) => `目前${range[0]}-${range[1]} 总${total}个`}">
+		<a-table :columns="columns" :data-source="data" size="small">
 
-			<template slot="company" slot-scope="company">
-				<h6 class="m-0">
-					<img :src="company.logo" width="25" style="margin-right: 10px;">
-					{{ company.name }}
-				</h6>
-			</template>
-
-			<template slot="completion" slot-scope="completion">
-				<div class="progress-right">
-					<div class="text-sm font-semibold text-muted text-right pr-10" style="display: block;min-width: 30px;">{{ completion }}</div>
-					<a-progress class="m-0" :percent="completion" :show-info="false" size="small" style="min-width: 50px;" />
-				</div>
-			</template>
+      <template slot="company" slot-scope="company">
+        <h6 class="m-0">
+          {{ company.name }}
+        </h6>
+      </template>
 
 		</a-table>
 	</a-card>
@@ -46,6 +38,10 @@
 				type: Array,
 				default: () => [],
 			},
+      title: {
+        type: String,
+        default: null
+      }
 		},
 		data() {
 			return {

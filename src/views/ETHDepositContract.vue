@@ -1,64 +1,13 @@
 <template>
   <div>
-    <!-- Charts -->
-    <a-row :gutter="24" type="flex" align="stretch">
-      <a-col :span="24" :lg="12" class="mb-24">
-
-        <!-- Sales Overview Card -->
-        <CardLineChart></CardLineChart>
-        <!-- / Sales Overview Card -->
-
-      </a-col>
-
-      <!-- Projects Table Column -->
-      <a-col :span="24" :lg="12" class="mb-24">
-
-        <!-- Projects Table Column -->
-        <CardProjectTable2
-            :data="table2Data"
-            :columns="table2Columns"
-        ></CardProjectTable2>
-        <!-- / Projects Table Column -->
-
-      </a-col>
-      <!-- / Projects Table Column -->
-    </a-row>
-    <!-- / Charts -->
-
-    <!-- Charts -->
-    <a-row :gutter="24" type="flex" align="stretch">
-      <a-col :span="24" :lg="12" class="mb-24">
-
-        <!-- Sales Overview Card -->
-        <CardLineChartTA></CardLineChartTA>
-        <!-- / Sales Overview Card -->
-
-      </a-col>
-
-      <!-- Projects Table Column -->
-      <a-col :span="24" :lg="12" class="mb-24">
-
-        <!-- Projects Table Column -->
-        <CardProjectTableGCE
-            :data="table2Data"
-            :columns="table2Columns"
-        ></CardProjectTableGCE>
-        <!-- / Projects Table Column -->
-
-      </a-col>
-      <!-- / Projects Table Column -->
-    </a-row>
-    <!-- / Charts -->
-
     <a-row :gutter="24">
       <a-col :span="24" :lg="8" class="mb-24">
 
         <!-- Salary Card -->
         <a-card :bordered="false" class="widget-2 h-full">
-          <a-statistic :value="149" suffix=" ETH">
+          <a-statistic :value="10.7" suffix="M ETH">
             <template #title>
-              <h6>1小时总燃料费</h6>
-              <p>比一次多了xx</p>
+              <h6>ETH 总锁仓量</h6>
             </template>
           </a-statistic>
         </a-card>
@@ -69,10 +18,9 @@
 
         <!-- Paypal Card -->
         <a-card :bordered="false" class="widget-2 h-full">
-          <a-statistic :value="149" suffix="k ETH">
+          <a-statistic :value="68.6" suffix="k">
             <template #title>
-              <h6>24小时总燃料费</h6>
-              <p>比一次多了xx</p>
+              <h6>独立账户数</h6>
             </template>
           </a-statistic>
         </a-card>
@@ -83,10 +31,9 @@
 
         <!-- Paypal Card -->
         <a-card :bordered="false" class="widget-2 h-full">
-          <a-statistic :value="149" suffix="k ETH">
+          <a-statistic :value="333" suffix="k">
             <template #title>
-              <h6>7天总燃料费</h6>
-              <p>比一次多了xx</p>
+              <h6>独立验证数</h6>
             </template>
           </a-statistic>
         </a-card>
@@ -97,30 +44,71 @@
 
     <!-- Charts -->
     <a-row :gutter="24" type="flex" align="stretch">
-      <a-col :span="24" :lg="24" class="mb-24">
+      <a-col :span="24" :lg="12" class="mb-24">
 
         <!-- Sales Overview Card -->
-        <CardAreaChart></CardAreaChart>
+        <CardLineChartED></CardLineChartED>
         <!-- / Sales Overview Card -->
 
       </a-col>
+
+      <!-- Projects Table Column -->
+      <a-col :span="24" :lg="12" class="mb-24">
+
+        <!-- Projects Table Column -->
+        <CardProjectTableTEDA
+            :data="table2Data"
+            :columns="table2Columns"
+        ></CardProjectTableTEDA>
+        <!-- / Projects Table Column -->
+
+      </a-col>
+      <!-- / Projects Table Column -->
     </a-row>
     <!-- / Charts -->
+
+    <!-- Charts -->
+    <a-row :gutter="24" type="flex" align="stretch">
+      <a-col :span="24" :lg="12" class="mb-24">
+
+        <!-- Projects Table Column -->
+        <CardProjectTableD
+            :data="table2Data"
+            :columns="table2Columns"
+            title="锁仓者"
+        ></CardProjectTableD>
+        <!-- / Projects Table Column -->
+
+      </a-col>
+
+      <!-- Projects Table Column -->
+      <a-col :span="24" :lg="12" class="mb-24">
+
+        <!-- Projects Table Column -->
+        <CardProjectTableD
+            :data="table2Data"
+            :columns="table2Columns"
+            title="锁仓者在哪里获取ETH？"
+        ></CardProjectTableD>
+        <!-- / Projects Table Column -->
+
+      </a-col>
+      <!-- / Projects Table Column -->
+    </a-row>
+    <!-- / Charts -->
+
   </div>
 </template>
 
 <script>
 
-// Line chart for "Sales Overview" card.
-import CardLineChart from '../components/Cards/CardLineChart' ;
-// Line chart for "bar" card.
-import CardAreaChart from '../components/Cards/CardAreaChart' ;
-// Line chart for "TA" card.
-import CardLineChartTA from '../components/Cards/CardLineChartTA' ;
-// "Projects" table component.
-import CardProjectTable2 from '../components/Cards/CardProjectTable2' ;
-// "GCE" table component.
-import CardProjectTableGCE from '../components/Cards/CardProjectTableGCE' ;
+// Line chart for "ED" card.
+import CardLineChartED from '../components/Cards/CardLineChartED' ;
+// "TEDA" table component.
+import CardProjectTableTEDA from '../components/Cards/CardProjectTableTEDA' ;
+// "D" table component.
+import CardProjectTableD from '../components/Cards/CardProjectTableD' ;
+
 
 // "Projects" table list of columns and their properties.
 const table2Columns = [
@@ -207,11 +195,9 @@ const table2Data = [
 export default {
   name: "GasTracker",
   components: {
-    CardLineChart,
-    CardProjectTable2,
-    CardAreaChart,
-    CardLineChartTA,
-    CardProjectTableGCE
+    CardLineChartED,
+    CardProjectTableTEDA,
+    CardProjectTableD
   },
   data() {
     return {

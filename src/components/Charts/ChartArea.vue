@@ -36,12 +36,14 @@
 					responsive: true,
 					maintainAspectRatio: false,
 					plugins: {
-						legend: {
-							display: false,
-						},
+            filler: {
+              propagate: false
+            },
+            'samples-filler-analyser': {
+              target: 'chart-analyser'
+            }
 					},
           interaction: {
-            mode: 'index',
             intersect: false,
           },
 					scales: {
