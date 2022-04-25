@@ -1,135 +1,164 @@
 <template>
 
-	<!-- Billing Information Card -->
-	<a-card :bordered="false" class="header-solid h-full" :bodyStyle="{paddingTop: 0, paddingBottom: '16px' }">
-		<template #title>
+  <!-- Billing Information Card -->
+  <a-card :bordered="false" class="header-solid h-full" :bodyStyle="{paddingTop: 0, paddingBottom: '16px' }">
+    <CardBarChart></CardBarChart>
+    <template #title>
       <a-row type="flex" align="middle">
         <a-col :span="24" :md="12">
-          <h5 class="font-semibold m-0">已触发消息</h5>
+          <div class="js-lives__date">
+            <div class="calendar"><span class="month">4<img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAA4CAYAAADn2zjOAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAG3SURBVHgBtZbtTcMwEIbPhgHKAJVALMAGdAPYAEajG7QbhA2YAJIJ6AK1OedHRJKzfR/O+yfqRenTe2Slr4MGucfE6H+IW72HJvGv1DRGODcB4Be9UXPvw4cDY0p6huH7wbzB9QoHao5bdelqBnjvSD0hhGO6mhTV9Iw/AAyp6TEDanpS1Io4esYfAcpw9JgA3t+80PNw/v9ZpQjt7FDPL3HrgnruZkBQBPXk3j2n5UwFcM4/U3M8VZ+NAPQGuNtqg1sQZr9/xC+Pu+U8xngehv6ynIs3cC5mTo8/kXMQA+jzj3o6MwCP5yFd1ndi12PACgjBk+8ePFXH3DMigFSPCKDRIwJo9IgAGj1sAOp5AlrPV0kPG4B63ql5jO5Ye5YFQD25d/+p9mwVkP4agdQDfU0PC1DqncBIFVDqncBI8S+T2xxKKW7AbQ5qAKdY1ZJV1EJPSnaDFnqKgBZ6UkhFrfSkkBu00pMFcHsnJytFkt7JyWoDSe9UASS9Uwng905OZt1U2js5mW0g7Z0KgK45sADaYsUGaIsVG7CFngmwlZ4JsJWeCbCVnhFg6Z0sgKV3sgCW3snJHxCh8YsP/9ZkAAAAAElFTkSuQmCC"
+                alt="" style="width:12px;height:28px;margin:0 5px;vertical-align: auto">15</span></div>
+            <div class="info"><span class="current">今天</span> <span class="week">星期五</span></div>
+          </div>
         </a-col>
-        <a-col :span="24" :md="12" style="display: flex; align-items: center; justify-content: flex-end">
-          <a-radio-group v-model="authorsHeaderBtns" size="small">
-            <a-radio-button value="all">消息</a-radio-button>
-            <a-radio-button value="online">提醒设置</a-radio-button>
+        <a-col :span="24" :md="12" style="display: flex; align-items: showItems; justify-content: flex-end">
+          <a-radio-group v-model="currentShowCate" size="small" @change="onChange">
+            <a-radio-button value="1">全部</a-radio-button>
+            <a-radio-button value="11">精选</a-radio-button>
+            <a-radio-button value="12">NFT</a-radio-button>
+            <a-radio-button value="13">政策</a-radio-button>
+            <a-radio-button value="14">数据</a-radio-button>
+            <a-radio-button value="15">项目</a-radio-button>
           </a-radio-group>
         </a-col>
       </a-row>
-		</template>
-		<a-row :gutter="[24, 24]">
-			<a-col :span="24">
-			<a-card :bordered="false" class="card-billing-info">
-				<div class="col-info">
-					<a-descriptions title="策略1" :column="1">
-						<a-descriptions-item label="条件">
-							btc价格达到50000
-						</a-descriptions-item>
-						<a-descriptions-item label="到期时间">
-							2022-03-11
-						</a-descriptions-item>
-						<a-descriptions-item label="提醒方式">
-							邮件
-						</a-descriptions-item>
-					</a-descriptions>
-				</div>
-				<div class="col-action">
-					<a-button type="link" size="small">
-						<svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path class="fill-danger" fill-rule="evenodd" clip-rule="evenodd" d="M9 2C8.62123 2 8.27497 2.214 8.10557 2.55279L7.38197 4H4C3.44772 4 3 4.44772 3 5C3 5.55228 3.44772 6 4 6L4 16C4 17.1046 4.89543 18 6 18H14C15.1046 18 16 17.1046 16 16V6C16.5523 6 17 5.55228 17 5C17 4.44772 16.5523 4 16 4H12.618L11.8944 2.55279C11.725 2.214 11.3788 2 11 2H9ZM7 8C7 7.44772 7.44772 7 8 7C8.55228 7 9 7.44772 9 8V14C9 14.5523 8.55228 15 8 15C7.44772 15 7 14.5523 7 14V8ZM12 7C11.4477 7 11 7.44772 11 8V14C11 14.5523 11.4477 15 12 15C12.5523 15 13 14.5523 13 14V8C13 7.44772 12.5523 7 12 7Z" fill="#111827"/>
-						</svg>
-						<span class="text-danger">删除</span>
-					</a-button>
-					<a-button type="link" size="small">
-						<svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path class="fill-muted" d="M13.5858 3.58579C14.3668 2.80474 15.6332 2.80474 16.4142 3.58579C17.1953 4.36683 17.1953 5.63316 16.4142 6.41421L15.6213 7.20711L12.7929 4.37868L13.5858 3.58579Z" fill="#111827"/>
-							<path class="fill-muted" d="M11.3787 5.79289L3 14.1716V17H5.82842L14.2071 8.62132L11.3787 5.79289Z" fill="#111827"/>
-						</svg>
-						<span class="text-dark">编辑</span>
-					</a-button>
-				</div>
-			</a-card>
-			</a-col>
-			<a-col :span="24">
-			<a-card :bordered="false" class="card-billing-info">
-				<div class="col-info">
-					<a-descriptions title="大航海策略" :column="1">
-						<a-descriptions-item label="条件">
-							出现行情巨大波动
-						</a-descriptions-item>
-						<a-descriptions-item label="到期时间">
-							2022-04-04
-						</a-descriptions-item>
-						<a-descriptions-item label="提醒方式">
-							邮件
-						</a-descriptions-item>
-					</a-descriptions>
-				</div>
-				<div class="col-action">
-					<a-button type="link" size="small">
-						<svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path class="fill-danger" fill-rule="evenodd" clip-rule="evenodd" d="M9 2C8.62123 2 8.27497 2.214 8.10557 2.55279L7.38197 4H4C3.44772 4 3 4.44772 3 5C3 5.55228 3.44772 6 4 6L4 16C4 17.1046 4.89543 18 6 18H14C15.1046 18 16 17.1046 16 16V6C16.5523 6 17 5.55228 17 5C17 4.44772 16.5523 4 16 4H12.618L11.8944 2.55279C11.725 2.214 11.3788 2 11 2H9ZM7 8C7 7.44772 7.44772 7 8 7C8.55228 7 9 7.44772 9 8V14C9 14.5523 8.55228 15 8 15C7.44772 15 7 14.5523 7 14V8ZM12 7C11.4477 7 11 7.44772 11 8V14C11 14.5523 11.4477 15 12 15C12.5523 15 13 14.5523 13 14V8C13 7.44772 12.5523 7 12 7Z" fill="#111827"/>
-						</svg>
-						<span class="text-danger">删除</span>
-					</a-button>
-					<a-button type="link" size="small">
-						<svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path class="fill-muted" d="M13.5858 3.58579C14.3668 2.80474 15.6332 2.80474 16.4142 3.58579C17.1953 4.36683 17.1953 5.63316 16.4142 6.41421L15.6213 7.20711L12.7929 4.37868L13.5858 3.58579Z" fill="#111827"/>
-							<path class="fill-muted" d="M11.3787 5.79289L3 14.1716V17H5.82842L14.2071 8.62132L11.3787 5.79289Z" fill="#111827"/>
-						</svg>
-						<span class="text-dark">编辑</span>
-					</a-button>
-				</div>
-			</a-card>
-			</a-col>
+    </template>
+    <a-modal v-model="visible" title="新闻正文">
+      <p>{{content}}</p>
+      <template slot="footer">
+        <a-button type="primary" @click="visible = false">确定</a-button>
+      </template>
+    </a-modal>
+    <a-row :gutter="[24, 24]" class="mt-20">
       <a-col :span="24" style="padding-left: 25px;padding-right: 25px">
-      <!-- Orders History Timeline Card -->
-      <a-timeline pending="监控中...">
-        <a-timeline-item color="green">
-          Gas费出现大幅波动
-          <p>2022-04-04 12:38</p>
-        </a-timeline-item>
-        <a-timeline-item color="blue">
-          BTC到达45000
-          <p>2022-04-03 16:22</p>
-        </a-timeline-item>
-        <a-timeline-item color="gray">
-          新订单#8187233
-          <p>2022-04-03 11:41</p>
-        </a-timeline-item>
-        <template #pendingDot> </template>
-      </a-timeline>
-      <a-button type="primary" size="small" @click="" class="button-center">
-        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 3C2.44772 3 2 3.44772 2 4C2 4.55228 2.44772 5 3 5H14C14.5523 5 15 4.55228 15 4C15 3.44772 14.5523 3 14 3H3Z" fill="#111827"/>
-          <path d="M3 7C2.44772 7 2 7.44772 2 8C2 8.55228 2.44772 9 3 9H8C8.55228 9 9 8.55228 9 8C9 7.44772 8.55228 7 8 7H3Z" fill="#111827"/>
-          <path d="M3 11C2.44772 11 2 11.4477 2 12C2 12.5523 2.44772 13 3 13H7C7.55228 13 8 12.5523 8 12C8 11.4477 7.55228 11 7 11H3Z" fill="#111827"/>
-          <path d="M13 16C13 16.5523 13.4477 17 14 17C14.5523 17 15 16.5523 15 16L15 10.4142L16.2929 11.7071C16.6834 12.0976 17.3166 12.0976 17.7071 11.7071C18.0976 11.3166 18.0976 10.6834 17.7071 10.2929L14.7071 7.29289C14.5196 7.10536 14.2652 7 14 7C13.7348 7 13.4804 7.10536 13.2929 7.29289L10.2929 10.2929C9.90237 10.6834 9.90237 11.3166 10.2929 11.7071C10.6834 12.0976 11.3166 12.0976 11.7071 11.7071L13 10.4142L13 16Z" fill="#111827"/>
-        </svg>
-        全部设为已读
-      </a-button>
+        <!-- Orders History Timeline Card -->
+        <a-timeline pending="没有更多了...">
+          <a-timeline-item :color="item.category===11 ?'red':'blue'" v-for="item in showItems" :key="item.id" @click="showModal(item.content)">
+            {{item.content_prefix}}
+            <p>{{item.time}}</p>
+          </a-timeline-item>
+          <template #pendingDot></template>
+        </a-timeline>
+        <a-button type="primary" size="small" @click="backTop" class="button-center">
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M3 3C2.44772 3 2 3.44772 2 4C2 4.55228 2.44772 5 3 5H14C14.5523 5 15 4.55228 15 4C15 3.44772 14.5523 3 14 3H3Z"
+                fill="#111827"/>
+            <path
+                d="M3 7C2.44772 7 2 7.44772 2 8C2 8.55228 2.44772 9 3 9H8C8.55228 9 9 8.55228 9 8C9 7.44772 8.55228 7 8 7H3Z"
+                fill="#111827"/>
+            <path
+                d="M3 11C2.44772 11 2 11.4477 2 12C2 12.5523 2.44772 13 3 13H7C7.55228 13 8 12.5523 8 12C8 11.4477 7.55228 11 7 11H3Z"
+                fill="#111827"/>
+            <path
+                d="M13 16C13 16.5523 13.4477 17 14 17C14.5523 17 15 16.5523 15 16L15 10.4142L16.2929 11.7071C16.6834 12.0976 17.3166 12.0976 17.7071 11.7071C18.0976 11.3166 18.0976 10.6834 17.7071 10.2929L14.7071 7.29289C14.5196 7.10536 14.2652 7 14 7C13.7348 7 13.4804 7.10536 13.2929 7.29289L10.2929 10.2929C9.90237 10.6834 9.90237 11.3166 10.2929 11.7071C10.6834 12.0976 11.3166 12.0976 11.7071 11.7071L13 10.4142L13 16Z"
+                fill="#111827"/>
+          </svg>
+          回到顶部
+        </a-button>
       </a-col>
       <!-- / Orders History Timeline Card -->
-		</a-row>
-	</a-card>
-	<!-- / Billing Information Card -->
+    </a-row>
+  </a-card>
+  <!-- / Billing Information Card -->
 
 </template>
 
 <script>
+import CardBarChart from './CardBarChart.vue';
 
-	export default ({
-		data() {
-      return {
-        // Active button for the "Authors" table's card header radio button group.
-        authorsHeaderBtns: 'all',
+export default ({
+  components: {
+    CardBarChart
+  },
+  data() {
+    return {
+      // Active button for the "Authors" table's card header radio button group.
+      items: null,
+      currentShowCate: '1',
+      showItems: null,
+      visible: false,
+      content: null
+    }
+  },
+  methods:{
+    showModal(content) {
+      this.visible = true;
+      this.content = content;
+    },
+    async fetch(){
+      const res = await this.$http.get("rest/new");
+
+      this.items = res.data;
+      this.showItems = this.items;
+    },
+    onChange(e) {
+      if (e.target.value === '1') {
+        this.showItems = this.items;
+      } else {
+        this.showItems = this.items.filter(item => item.category == e.target.value);
       }
-		},
-	})
+    },
+    backTop() {
+      window.scrollTo(0, 0);
+    }
+  },
+  created() {
+    this.fetch()
+  }
+})
 
 </script>
 
 <style scoped>
-.button-center{
+.button-center {
   display: block;
   margin: 0 auto;
+}
+.js-lives__date {
+  float: left;
+  height: 30px;
+}
+.js-lives__date .calendar {
+  float: left;
+  height: 30px;
+  display: flex;
+  margin-right: 8px;
+}
+.js-lives__date span {
+  display: inline-block;
+  height: 20px;
+  font-family: DINOT-Medium;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 38px;
+  line-height: 30px;
+  color: #000;
+}
+.js-lives__date .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 30px;
+  margin-top: 2px;
+}
+.js-lives__date .info .current {
+  font-family: PingFang SC;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 12px;
+  margin-bottom: 5px;
+  color: #1f1f22;
+  height: 12px;
+}
+.js-lives__date .info .week {
+  font-family: PingFang SC;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 11px;
+  color: #767680;
 }
 </style>

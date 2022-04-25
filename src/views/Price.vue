@@ -9,27 +9,28 @@
       </div>
       <div class="section wf-section">
         <div class="container">
-          <div class="centered-div small-margin-bottom">
-            <div class="bold-text" style="color: #8c8c8c">年付可以获得8折优惠</div>
-          </div>
+<!--          <div class="centered-div small-margin-bottom">-->
+<!--            <div class="bold-text" style="color: #8c8c8c">年付可以获得8折优惠</div>-->
+<!--          </div>-->
           <div data-duration-in="300" data-duration-out="100" data-current="Quarterly" data-easing="ease"
                class="pricing-tabs w-tabs">
-            <div class="pricing-tab-menu w-tab-menu" role="tablist"><a data-w-tab="Monthly"
-                                                                       class="pricing-tab-link w-inline-block w-tab-link"
-                                                                       id="w-tabs-0-data-w-tab-0"
-                                                                       href="#w-tabs-0-data-w-pane-0" role="tab"
-                                                                       aria-controls="w-tabs-0-data-w-pane-0"
-                                                                       aria-selected="false" tabindex="-1">
-              <div>月付</div>
-            </a><a data-w-tab="Quarterly" class="pricing-tab-link w-inline-block w-tab-link w--current"
-                   id="w-tabs-0-data-w-tab-1" href="#w-tabs-0-data-w-pane-1" role="tab"
-                   aria-controls="w-tabs-0-data-w-pane-1" aria-selected="true">
-              <div>季度</div>
-            </a><a data-w-tab="Yearly" class="pricing-tab-link w-inline-block w-tab-link" id="w-tabs-0-data-w-tab-2"
-                   href="#w-tabs-0-data-w-pane-2" role="tab" aria-controls="w-tabs-0-data-w-pane-2"
-                   aria-selected="false" tabindex="-1">
-              <div>年付</div>
-            </a></div>
+<!--            <div class="pricing-tab-menu w-tab-menu" role="tablist">-->
+<!--              <a data-w-tab="Monthly"-->
+<!--                                                                       class="pricing-tab-link w-inline-block w-tab-link"-->
+<!--                                                                       id="w-tabs-0-data-w-tab-0"-->
+<!--                                                                       href="#w-tabs-0-data-w-pane-0" role="tab"-->
+<!--                                                                       aria-controls="w-tabs-0-data-w-pane-0"-->
+<!--                                                                       aria-selected="false" tabindex="-1">-->
+<!--              <div>月付</div>-->
+<!--            </a><a data-w-tab="Quarterly" class="pricing-tab-link w-inline-block w-tab-link w&#45;&#45;current"-->
+<!--                   id="w-tabs-0-data-w-tab-1" href="#w-tabs-0-data-w-pane-1" role="tab"-->
+<!--                   aria-controls="w-tabs-0-data-w-pane-1" aria-selected="true">-->
+<!--              <div>季度</div>-->
+<!--            </a><a data-w-tab="Yearly" class="pricing-tab-link w-inline-block w-tab-link" id="w-tabs-0-data-w-tab-2"-->
+<!--                   href="#w-tabs-0-data-w-pane-2" role="tab" aria-controls="w-tabs-0-data-w-pane-2"-->
+<!--                   aria-selected="false" tabindex="-1">-->
+<!--              <div>年付</div>-->
+<!--            </a></div>-->
             <div class="tabs-content-pricing w-tab-content">
               <div data-w-tab="Quarterly" class="w-tab-pane w--tab-active" id="w-tabs-0-data-w-pane-1" role="tabpanel"
                    aria-labelledby="w-tabs-0-data-w-tab-1" style="opacity: 1;">
@@ -46,17 +47,16 @@
                     <div class="subscribe-div">
                       <div class="subscribe-text">支付方式</div>
                       <div class="pricing-button-container"><a
-                          href="https://pro.nansen.ai/auth/signup?price=price_1JoZ4CFP6HanNm57P2GmeBDQ&amp;source=landing&amp;method=fiat"
-                          target="_blank" class="primary-button white-half white-button-animation w-button">网银</a><a
-                          href="https://pro.nansen.ai/auth/signup?price=price_1JoZ4CFP6HanNm57P2GmeBDQ&amp;source=landing&amp;method=crypto"
-                          target="_blank" class="primary-button white-half right white-button-animation w-button">加密货币</a></div>
+                          target="_blank" class="primary-button white-half white-button-animation w-button" @click="buy">网银</a><a
+                          target="_blank" class="primary-button white-half right white-button-animation w-button" @click="buy">加密货币</a></div>
                     </div>
                     <div class="pricing-div last">
                       <div class="w-layout-grid pricing-features-new">
                         <div class="individual-feature-wrap"><img
                             src="https://assets-global.website-files.com/60118ca18674407b85935203/61c3ff9ca53b0451c62bed4f_Triangle%20Bullet%20Point.svg"
                             alt="" class="pricing-bullet-point">
-                          <div>代币 天眼模式</div>
+<!--                          <div>代币 天眼模式</div>-->
+                          <div>数据仪表盘</div>
                           <div data-w-id="778db07d-2fe0-4f7d-bcef-e18e13f7e60b" class="tooltip-button"><a href="#"
                                                                                                           class="tooltip-button w-inline-block"><img
                               loading="lazy"
@@ -77,7 +77,7 @@
                         <div class="individual-feature-wrap"><img
                             src="https://assets-global.website-files.com/60118ca18674407b85935203/61c3ff9ca53b0451c62bed4f_Triangle%20Bullet%20Point.svg"
                             alt="" class="pricing-bullet-point">
-                          <div>NFT 仪表盘</div>
+                          <div>交易数据 仪表盘</div>
                           <div data-w-id="778db07d-2fe0-4f7d-bcef-e18e13f7e617" class="tooltip-button"><a href="#"
                                                                                                           class="tooltip-button w-inline-block"><img
                               loading="lazy"
@@ -97,28 +97,27 @@
                         </div>
                         <ul role="list" class="pricing-list">
                           <li class="pricing-list-item">
-                            <div>NFT Mint Master</div>
+                            <div>OpenSea交易费用分析</div>
                           </li>
                           <li class="pricing-list-item">
-                            <div>NFT Smart Alerts</div>
+                            <div>OpenSea最近链上交易详细记录
+                            </div>
                           </li>
                           <li class="pricing-list-item">
-                            <div>NFT Rarity Data</div>
+                            <div>矿工交易费用分析</div>
                           </li>
                           <li class="pricing-list-item">
-                            <div>NFT Bluechip Index</div>
+                            <div>矿工交易详细记录</div>
                           </li>
                           <li class="pricing-list-item">
-                            <div>NFT Smart Money Tracker</div>
+                            <div>灰度信托基金持有的ETH数量</div>
                           </li>
                           <li class="pricing-list-item">
-                            <div>NFT&nbsp;Paradise</div>
+                            <div>Kraken最近链上交易详细记录
+                            </div>
                           </li>
                           <li class="pricing-list-item">
-                            <div>NFT&nbsp;God Mode</div>
-                          </li>
-                          <li class="pricing-list-item">
-                            <div>NFT Wallet Profiler</div>
+                            <div>矿工历史挖掘分析</div>
                           </li>
                         </ul>
                         <div class="individual-feature-wrap"><img
@@ -168,10 +167,8 @@
                     <div class="subscribe-div">
                       <div class="subscribe-text">支付方式</div>
                       <div class="pricing-button-container"><a
-                          href="https://pro.nansen.ai/auth/signup?price=price_1JoZ5IFP6HanNm57oqOlNClN&amp;source=landing&amp;method=fiat"
-                          target="_blank" class="primary-button white-half white-button-animation w-button">网银</a><a
-                          href="https://pro.nansen.ai/auth/signup?price=price_1JoZ5IFP6HanNm57oqOlNClN&amp;source=landing&amp;method=crypto"
-                          target="_blank" class="primary-button white-half right white-button-animation w-button">加密货币</a></div>
+                          target="_blank" class="primary-button white-half white-button-animation w-button" @click="buyP">网银</a><a
+                          target="_blank" class="primary-button white-half right white-button-animation w-button" @click="buyP">加密货币</a></div>
                     </div>
                     <div class="pricing-div last">
                       <div class="w-layout-grid pricing-features-new">
@@ -246,7 +243,7 @@
         <div class="container w-container">
           <div class="cta-div centre-bg">
             <div class="w60-div centered-div"><h2 class="black-text no-margin-y">对订阅有疑问或需要帮助?</h2><a
-                href="https://nansen.ai/discord"
+                href="#"
                 class="primary-button black-button ghost-button-animation w-inline-block">
               <div>联系我们</div>
             </a></div>
@@ -259,8 +256,52 @@
 
 <script>
 export default {
-  name: "Price"
+  name: "Price",
+  data() {
+    return {
+    };
+  },
+  methods: {
+    buy() {
+      const username = localStorage.getItem("username") || "";
+      if (username === "") {
+        alert("请先登录");
+      } else {
+        this.$confirm({title: "提示", content: "是否确定要购买此计划?",
+          onOk: async () => {
+            await this.$http.post("rest/orders/buy",{money:'588', day:'30', good:'1'});
+            this.$message.success("购买成功");
+            localStorage.setItem("vip", "1");
+            await this.$router.push("/gas-tracker");
+          },
+          onCancel: () => {
+            this.$message.info("已取消购买");
+          },
+        });
+      }
+    },
+    buyP() {
+      const username = localStorage.getItem("username") || "";
+      if (username === "") {
+        alert("请先登录");
+      } else {
+        this.$confirm({title: "提示", content: "是否确定要购买此计划?",
+          onOk: async () => {
+            await this.$http.post("rest/orders/buy",{money:'888', day:'30', good:'2'});
+            this.$message.success("购买成功");
+            localStorage.setItem("vip", "2");
+            await this.$router.push("/gas-tracker");
+          },
+          onCancel: () => {
+            this.$message.info("已取消购买");
+          },
+        });
+      }
+    },
+  },
 }
+
+
 </script>
 
 <style src="../assets/n.css" scoped></style>

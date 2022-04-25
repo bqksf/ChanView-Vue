@@ -2,12 +2,11 @@
 
 	<a-card :bordered="false" class="dashboard-bar-line header-solid">
 		<template #title>
-			<h6>Gas费中位数</h6>
+			<h6>矿工交易费用分析</h6>
 			<p>更新于 {{updateTime | date("MM-DD HH:mm:ss")}}</p>
 		</template>
 		<template #extra>
-			<a-badge color="primary" class="badge-dot-primary" text="Traffic" />
-			<a-badge color="primary" class="badge-dot-secondary" text="Sales" />
+			<a-badge color="primary" class="badge-dot-primary" text="gas费" />
 		</template>
     <canvas ref="chart" style="height: 310px"></canvas>
 	</a-card>
@@ -26,23 +25,15 @@ Chart.register(...registerables);
 				lineChartData: {
           labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
           datasets: [{
-            label: "Mobile apps",
+            label: "gas费",
             tension: 0.4,
-            borderWidth: 3,
             pointRadius: 0,
             borderColor: "#1890FF",
-            data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+            borderWidth: 3,
+            data: [50, 40, 30, 20, 50, 25, 40, 23, 50],
             maxBarThickness: 6
-          },
-            {
-              label: "Websites",
-              tension: 0.4,
-              borderWidth: 3,
-              pointRadius: 0,
-              borderColor: "#B37FEB",
-              data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
-              maxBarThickness: 6
-            }],
+
+          }],
         },
 			}
 		},
@@ -122,10 +113,9 @@ Chart.register(...registerables);
     },
     methods:{
       async fetch(){
-        const res = await this.$http.get("rest/chart/6251848db41d2162538d2cf4");
+        const res = await this.$http.get("rest/chart/6251b01ba204ed29e33184d6");
         this.chart.data.labels = res.data.col;
-        this.chart.data.datasets[0].data = res.data.data1;
-        this.chart.data.datasets[1].data = res.data.data2;
+        this.chart.data.datasets[0].data = res.data.data;
         // 更新时间
         this.updateTime = res.data.updateAt;
         this.chart.update();

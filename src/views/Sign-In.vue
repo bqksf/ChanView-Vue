@@ -11,7 +11,8 @@
 			<!-- Sign In Form Column -->
 			<a-col :span="24" :md="12" :lg="{span: 12, offset: 0}" :xl="{span: 6, offset: 2}" class="col-form">
 				<h1 class="mb-15">登录</h1>
-				<h5 class="font-regular text-muted">请输入您的邮箱和密码进行登录</h5>
+        <h5 class="font-regular text-muted">请输入您的用户名和密码进行登录</h5>
+
 
 				<!-- Sign In Form -->
 				<a-form
@@ -21,12 +22,12 @@
 					@submit="handleSubmit"
 					:hideRequiredMark="true"
 				>
-					<a-form-item class="mb-10" label="邮箱" :colon="false">
+					<a-form-item class="mb-10" label="用户名" :colon="false">
 						<a-input 
 						v-decorator="[
-						'email',
-						{ rules: [{ required: true, message: '请填写您的邮箱!' }] },
-						]" placeholder="请输入邮箱" />
+						'username',
+						{ rules: [{ required: true, message: '请填写您的用户名!' }] },
+						]" placeholder="请输入用户名" />
 					</a-form-item>
 					<a-form-item class="mb-10" label="密码" :colon="false">
 						<a-input
@@ -63,8 +64,6 @@
 	export default ({
 		data() {
 			return {
-				// Binded model property for "Sign In Form" switch button for "Remember Me" .
-				rememberMe: true,
 			}
 		},
 		beforeCreate() {
@@ -73,11 +72,22 @@
 		},
 		methods: {
 			// Handles input validation after submission.
-			handleSubmit(e) {
+			async handleSubmit(e) {
 				e.preventDefault();
-				this.form.validateFields((err, values) => {
+        await this.form.validateFields(async (err, values) => {
 					if ( !err ) {
-						console.log('Received values of form: ', values) ;
+            const res = await this.$http.post("/login", values);
+            localStorage.setItem("token", res.data.token);
+            localStorage.setItem("username", res.data.username);
+            if (res.data.vip){
+              localStorage.setItem("vip", res.data.vip);
+            }
+            if (res.data.vip){
+              localStorage.setItem("expire", res.data.expire);
+            }
+            this.$message.success("登录成功");
+            await this.$router.push("/");
+            this.$router.go(0);
 					}
 				});
 			},

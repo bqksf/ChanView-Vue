@@ -1,16 +1,8 @@
-<!-- 
-	This is the user profile page, it uses the dashboard layout in: 
-	"./layouts/Dashboard.vue" .
- -->
-
 <template>
 	<div>
 
-		<!-- Header Background Image -->
 		<div class="profile-nav-bg" style="background-image: url('images/bg-profile.jpg')"></div>
-		<!-- / Header Background Image -->
 
-		<!-- User Profile Card -->
 		<a-card :bordered="false" class="card-profile-head" :bodyStyle="{padding: 0,}">
 			<template #title>
 				<a-row type="flex" align="middle">
@@ -21,38 +13,41 @@
 						</div>
 					</a-col>
 					<a-col :span="24" :md="12" style="display: flex; align-items: center; justify-content: flex-end">
-            <a-button>
-              修改密码
-            </a-button>
+            <router-link to="/users/edit" class="btn btn-primary">
+              <a-button>
+                修改密码
+              </a-button>
+            </router-link>
+
           </a-col>
 				</a-row>
 			</template>
 		</a-card>
 		<!-- User Profile Card -->
 
-		<a-row type="flex" :gutter="24">
+<!--		<a-row type="flex" :gutter="24">-->
 
 			<!-- Platform Settings Column -->
-			<a-col :span="24" :md="12" class="mb-24">
+<!--			<a-col :span="24" :md="12" class="mb-24">-->
 
 				<!-- Platform Settings Card -->
-				<CardPlatformSettings></CardPlatformSettings>
+<!--				<CardPlatformSettings></CardPlatformSettings>-->
 				<!-- / Platform Settings Card -->
 
-			</a-col>
+<!--			</a-col>-->
 			<!-- / Platform Settings Column -->
 
 			<!-- Profile Information Column -->
-			<a-col :span="24" :md="12" class="mb-24">
+<!--			<a-col :span="24" :md="12" class="mb-24">-->
 
 				<!-- Profile Information Card -->
-				<CardProfileInformation></CardProfileInformation>
+<!--				<CardProfileInformation></CardProfileInformation>-->
 				<!-- / Profile Information Card -->
 
-			</a-col>
+<!--			</a-col>-->
 			<!-- / Profile Information Column -->
 
-		</a-row>
+<!--		</a-row>-->
 
     <a-row type="flex" :gutter="24">
     <!-- Your Transactions Column -->
@@ -60,7 +55,7 @@
 
       <!-- Your Transactions Card -->
       <CardTransactions
-          :data="transactionsData"
+          :data="items"
       ></CardTransactions>
       <!-- / Your Transactions Card -->
 
@@ -136,8 +131,24 @@
 
         // Associating "Your Transactions" list data with its corresponding property.
         transactionsData,
+
+        items: [],
 			}
 		},
+    methods:{
+      async fetch(){
+        const res = await this.$http.get("rest/order/getOrder");
+        this.items = res.data;
+        // await this.$http.post("rest/datas", {
+        //   name: "other",
+        //   data: {
+        //   }
+        // });
+      }
+    },
+    created() {
+      this.fetch();
+    }
 	})
 
 </script>

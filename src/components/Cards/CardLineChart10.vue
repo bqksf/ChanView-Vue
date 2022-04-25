@@ -2,12 +2,8 @@
 
 	<a-card :bordered="false" class="dashboard-bar-line header-solid">
 		<template #title>
-			<h6>Gas费中位数2</h6>
+			<h6>链上所有DEX的每日总交易量</h6>
 			<p>更新于 {{updateTime | date("MM-DD HH:mm:ss")}}</p>
-		</template>
-		<template #extra>
-			<a-badge color="primary" class="badge-dot-primary" text="Traffic" />
-			<a-badge color="primary" class="badge-dot-secondary" text="Sales" />
 		</template>
     <canvas ref="chart" style="height: 310px"></canvas>
 	</a-card>
@@ -26,7 +22,7 @@ Chart.register(...registerables);
 				lineChartData: {
           labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
           datasets: [{
-            label: "Mobile apps",
+            label: "交易量",
             tension: 0.4,
             pointRadius: 0,
             borderColor: "#FADB14",
@@ -115,7 +111,7 @@ Chart.register(...registerables);
     },
     methods:{
       async fetch(){
-        const res = await this.$http.get("rest/chart/6251b4290ac5f15d28214c77");
+        const res = await this.$http.get("rest/chart/6251b4290ac5f15d28214c78");
         this.chart.data.labels = res.data.col;
         this.chart.data.datasets[0].data = res.data.data;
         // 更新时间

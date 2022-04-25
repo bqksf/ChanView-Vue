@@ -4,13 +4,13 @@ import NProgress from './nprogress'
 import Vue from 'vue'
 import router from '../router/index'
 
-const http = axios.create({
-    baseURL: 'http://localhost:3000/admin/api', // /admin/api
+const httpU = axios.create({
+    baseURL: 'http://localhost:3000/web/api', // /admin/api
     timeout: 20 * 1000, // Timeout
 })
 
 // http request 拦截器
-http.interceptors.request.use(
+httpU.interceptors.request.use(
     config => {
         NProgress.start()
         if (localStorage.token) {  // 判断是否存在token，如果存在的话，则每个http header都加上token
@@ -24,7 +24,7 @@ http.interceptors.request.use(
     });
 
 //http response 拦截器,路由失效时重新跳转到登录界面
-http.interceptors.response.use(
+httpU.interceptors.response.use(
     response => {
         NProgress.done()
         process.env.NODE_ENV === 'development' && console.log(response);
@@ -44,4 +44,4 @@ http.interceptors.response.use(
     }
 );
 
-export default http;
+export default httpU;

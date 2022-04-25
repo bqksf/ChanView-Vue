@@ -14,7 +14,7 @@
 </template>
 
 <script>
-
+console.log(process.env.VUE_APP_API_URL)
 	export default ({
 		computed: {
 			// Sets components name based on current route's specified layout, defaults to

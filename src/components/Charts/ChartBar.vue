@@ -16,6 +16,7 @@
 		data(){
 			return {
 				chart: null,
+        updateTime: '',
 			} ;
 		},
 		mounted () { 
@@ -84,12 +85,23 @@
 					},
 				}
 			}) ;
+      this.fetch();
 		},
 		// Right before the component is destroyed,
 		// also destroy the chart.
 		beforeDestroy: function () {
 			this.chart.destroy() ;
 		},
+    methods:{
+      async fetch(){
+        const res = await this.$http.get("rest/segmentation/getWord");
+        this.chart.data.labels = res.data.col;
+        this.chart.data.datasets[0].data = res.data.data;
+        // 更新时间
+        this.updateTime = res.data.updateAt;
+        this.chart.update();
+      }
+    },
 	})
 
 </script>

@@ -44,7 +44,7 @@
         </a-menu-item>
         <a-menu-item>
           <router-link to="/eth-deposit-contract">
-            <span class="label">ETH2质押合约</span>
+            <span class="label">ETH2.0</span>
           </router-link>
         </a-menu-item>
         </a-menu-item-group>
@@ -66,7 +66,7 @@
         <a-menu-item-group>
           <template slot="title"></template>
           <a-menu-item>
-            <router-link to="/axie-infinity">
+            <router-link to="/axie">
               <span class="label">Axie Infinity</span>
             </router-link>
           </a-menu-item>
@@ -76,7 +76,7 @@
             </router-link>
           </a-menu-item>
           <a-menu-item>
-            <router-link to="/looksrare">
+            <router-link to="/looks">
               <span class="label">LooksRare</span>
             </router-link>
           </a-menu-item>
@@ -97,20 +97,37 @@
         <a-menu-item-group>
           <template slot="title"></template>
           <a-menu-item>
-            <router-link to="/arbitrum">
+            <router-link to="/arb">
               <span class="label">Arbitrum</span>
             </router-link>
           </a-menu-item>
+
+        </a-menu-item-group>
+      </a-sub-menu>
+      <a-sub-menu v-if="username === 'te1'">
+        <span slot="title">
+          <span class="icon">
+							<svg viewBox="64 64 896 896" data-icon="read" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false" class=""><path d="M928 161H699.2c-49.1 0-97.1 14.1-138.4 40.7L512 233l-48.8-31.3A255.2 255.2 0 0 0 324.8 161H96c-17.7 0-32 14.3-32 32v568c0 17.7 14.3 32 32 32h228.8c49.1 0 97.1 14.1 138.4 40.7l44.4 28.6c1.3.8 2.8 1.3 4.3 1.3s3-.4 4.3-1.3l44.4-28.6C602 807.1 650.1 793 699.2 793H928c17.7 0 32-14.3 32-32V193c0-17.7-14.3-32-32-32zM404 553.5c0 4.1-3.2 7.5-7.1 7.5H211.1c-3.9 0-7.1-3.4-7.1-7.5v-45c0-4.1 3.2-7.5 7.1-7.5h185.7c3.9 0 7.1 3.4 7.1 7.5v45zm0-140c0 4.1-3.2 7.5-7.1 7.5H211.1c-3.9 0-7.1-3.4-7.1-7.5v-45c0-4.1 3.2-7.5 7.1-7.5h185.7c3.9 0 7.1 3.4 7.1 7.5v45zm416 140c0 4.1-3.2 7.5-7.1 7.5H627.1c-3.9 0-7.1-3.4-7.1-7.5v-45c0-4.1 3.2-7.5 7.1-7.5h185.7c3.9 0 7.1 3.4 7.1 7.5v45zm0-140c0 4.1-3.2 7.5-7.1 7.5H627.1c-3.9 0-7.1-3.4-7.1-7.5v-45c0-4.1 3.2-7.5 7.1-7.5h185.7c3.9 0 7.1 3.4 7.1 7.5v45z"></path></svg>
+            </span>
+          <span class="label">博客管理</span>
+        </span>
+        <a-menu-item-group>
+          <template slot="title"></template>
           <a-menu-item>
-            <router-link to="/avalanche">
-              <span class="label">Avalanche</span>
+            <router-link to="/categories/list">
+              <span class="label">分类管理</span>
             </router-link>
           </a-menu-item>
           <a-menu-item>
-            <router-link to="/bnb-smart-chain">
-              <span class="label">BNB Smart Chain</span>
+            <router-link to="/articles/list">
+              <span class="label">文章管理</span>
             </router-link>
           </a-menu-item>
+<!--          <a-menu-item>-->
+<!--            <router-link to="/comments/list">-->
+<!--              <span class="label">评论管理</span>-->
+<!--            </router-link>-->
+<!--          </a-menu-item>-->
         </a-menu-item-group>
       </a-sub-menu>
       <a-menu-item class="menu-item-header">
@@ -140,6 +157,14 @@
           <span class="label">行情提醒</span>
         </router-link>
       </a-menu-item>
+      <a-menu-item>
+        <router-link to="/news">
+						<span class="icon">
+							<svg viewBox="64 64 896 896" data-icon="rocket" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false" class="" data-darkreader-inline-fill="" style="--darkreader-inline-fill: currentColor;"><path d="M864 736c0-111.6-65.4-208-160-252.9V317.3c0-15.1-5.3-29.7-15.1-41.2L536.5 95.4C530.1 87.8 521 84 512 84s-18.1 3.8-24.5 11.4L335.1 276.1a63.97 63.97 0 0 0-15.1 41.2v165.8C225.4 528 160 624.4 160 736h156.5c-2.3 7.2-3.5 15-3.5 23.8 0 22.1 7.6 43.7 21.4 60.8a97.2 97.2 0 0 0 43.1 30.6c23.1 54 75.6 88.8 134.5 88.8 29.1 0 57.3-8.6 81.4-24.8 23.6-15.8 41.9-37.9 53-64a97 97 0 0 0 43.1-30.5 97.52 97.52 0 0 0 21.4-60.8c0-8.4-1.1-16.4-3.1-23.8L864 736zM512 352a48.01 48.01 0 0 1 0 96 48.01 48.01 0 0 1 0-96zm116.1 432.2c-5.2 3-11.2 4.2-17.1 3.4l-19.5-2.4-2.8 19.4c-5.4 37.9-38.4 66.5-76.7 66.5s-71.3-28.6-76.7-66.5l-2.8-19.5-19.5 2.5a27.7 27.7 0 0 1-17.1-3.5c-8.7-5-14.1-14.3-14.1-24.4 0-10.6 5.9-19.4 14.6-23.8h231.3c8.8 4.5 14.6 13.3 14.6 23.8-.1 10.2-5.5 19.6-14.2 24.5z"></path></svg>
+						</span>
+          <span class="label">新闻服务</span>
+        </router-link>
+      </a-menu-item>
     </a-menu>
     <!-- / Sidebar Navigation Menu -->
 
@@ -161,18 +186,22 @@
 					</span>
         <h6>需要帮助?</h6>
         <p>可以看看我们的文章</p>
-        <a-button type="primary" href="https://demos.creative-tim.com/muse-vue-ant-design-dashboard/documentation" block
+        <router-link to="/blog">
+        <a-button type="primary" block
                   target="_blank">
           博客
         </a-button>
+        </router-link>
       </div>
     </div>
     <!-- / Sidebar Footer -->
-
-    <a-button type="primary" href="https://www.creative-tim.com/product/muse-vue-ant-design-dashboard-pro" block
-              target="_blank">
+<!-- v-if="VIP == ''" -->
+    <router-link to="/price">
+    <a-button type="primary"  block
+              target="_blank" >
       升级到Pro计划
     </a-button>
+    </router-link>
 
   </a-layout-sider>
   <!-- / Main Sidebar -->
@@ -204,6 +233,8 @@ export default ({
   data() {
     return {
       // sidebarCollapsedModel: this.sidebarCollapsed,
+      username:localStorage.getItem('username') || "",
+      VIP:localStorage.getItem('vip') || "",
     }
   },
 })

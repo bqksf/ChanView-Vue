@@ -18,12 +18,17 @@
 				chart: null,
 			} ;
 		},
+    computed: {
+      chartData: function() {
+        return this.data;
+      }
+    },
 		mounted () { 
     		let ctx = this.$refs.chart.getContext("2d");
 
 			this.chart = new Chart(ctx, {
 				type: "line",
-				data: this.data,
+				data: this.chartData,
      			options: {
 					layout: {
 						padding: {
@@ -90,6 +95,12 @@
 		beforeDestroy: function () {
 			this.chart.destroy() ;
 		},
+    watch: {
+      data: function() {
+        //this.renderChart(this.data, this.options);
+        this.chart.update();
+      }
+    }
 	})
 
 </script>

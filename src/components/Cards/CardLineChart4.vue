@@ -2,12 +2,11 @@
 
 	<a-card :bordered="false" class="dashboard-bar-line header-solid">
 		<template #title>
-			<h6>Gas费中位数</h6>
+			<h6>矿工收入奖励趋势</h6>
 			<p>更新于 {{updateTime | date("MM-DD HH:mm:ss")}}</p>
 		</template>
 		<template #extra>
-			<a-badge color="primary" class="badge-dot-primary" text="Traffic" />
-			<a-badge color="primary" class="badge-dot-secondary" text="Sales" />
+			<a-badge color="primary" class="badge-dot-secondary" text="美元" />
 		</template>
     <canvas ref="chart" style="height: 310px"></canvas>
 	</a-card>
@@ -26,10 +25,10 @@ Chart.register(...registerables);
 				lineChartData: {
           labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
           datasets: [{
-            label: "Mobile apps",
+            label: "奖励",
             tension: 0.4,
             pointRadius: 0,
-            borderColor: "#1890FF",
+            borderColor: "#B37FEB",
             borderWidth: 3,
             data: [50, 40, 30, 20, 50, 25, 40, 23, 50],
             maxBarThickness: 6
@@ -114,7 +113,7 @@ Chart.register(...registerables);
     },
     methods:{
       async fetch(){
-        const res = await this.$http.get("rest/chart/6251b01ba204ed29e33184d6");
+        const res = await this.$http.get("rest/chart/6251b2cc0f376aaad30d34d3");
         this.chart.data.labels = res.data.col;
         this.chart.data.datasets[0].data = res.data.data;
         // 更新时间

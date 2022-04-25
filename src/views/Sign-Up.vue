@@ -26,20 +26,10 @@
 				<a-form-item class="mb-10">
 					<a-input
 						v-decorator="[
-						'name',
-						{ rules: [{ required: true, message: '请输入您的昵称!' }] },
+						'username',
+						{ rules: [{ required: true, message: '请输入您的用户名!' }] },
 						]"
-						placeholder="请输入昵称"
-					>
-					</a-input>
-				</a-form-item>
-				<a-form-item class="mb-10">
-					<a-input
-						v-decorator="[
-						'email',
-						{ rules: [{ required: true, message: '请输入您的邮箱!' }] },
-						]"
-						placeholder="请输入邮箱"
+						placeholder="请输入用户名"
 					>
 					</a-input>
 				</a-form-item>
@@ -93,13 +83,20 @@
 		},
 		methods: {
 			// Handles input validation after submission.
-			handleSubmit(e) {
+      handleSubmit(e) {
 				e.preventDefault();
-				this.form.validateFields((err, values) => {
-					if ( !err ) {
-						console.log('Received values of form: ', values) ;
-					}
-				});
+        this.form.validateFields(async (err, values) => {
+          if (!err) {
+            const res = await this.$http.post("/register", values);
+            if ('username' in res.data) {
+              console.log('注册成功');
+              this.$message.success("注册成功");
+              await this.$router.push("/sign-in");
+            } else {
+              this.$message.error("注册失败");
+            }
+          }
+        });
 			},
 		},
 	})

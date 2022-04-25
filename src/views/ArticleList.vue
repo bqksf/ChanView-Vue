@@ -1,51 +1,81 @@
 <template>
   <div>
-    <m-top-handle
-      title="标题"
-      content="写博客"
-      path="/articles/create/"
-    ></m-top-handle>
-    <h1>文章列表</h1>
-    <el-table :data="items">
-      <el-table-column prop="_id" label="ID" width="250"></el-table-column>
-      <el-table-column prop="title" label="文章标题"></el-table-column>
-      <el-table-column prop="createdAt" label="创建时间">
-        <template scope="scope">
-          {{ scope.row.createdAt | date("YYYY-MM-DD HH:mm:ss") }}
-        </template>
-      </el-table-column>
-      <el-table-column prop="updatedAt" label="最后更新时间">
-        <template scope="scope">
-          {{ scope.row.updatedAt | date("YYYY-MM-DD HH:mm:ss") }}
-        </template>
-      </el-table-column>
-      <el-table-column fixed="right" label="操作" width="180">
-        <template slot-scope="scope">
-          <el-button
-            type="text"
-            size="small"
-            icon="el-icon-edit"
-            @click="$router.push(`/articles/edit/${scope.row._id}`)"
-            >编辑</el-button
-          >
-          <el-button
-            type="text"
-            size="small"
-            icon="el-icon-delete"
-            @click="remove(scope.row._id)"
-            >删除</el-button
-          >
-        </template>
-      </el-table-column>
-    </el-table>
+    <a-row type="flex" :gutter="24">
+      <a-col :span="24" :md="24" class="mb-24">
+        <a-card :bordered="false" class="header-solid h-full" >
+          <router-link to="/articles/create">
+            <a-button type="primary"><a-icon type="plus-circle" class="mr-8"></a-icon>
+              添加文章
+            </a-button>
+          </router-link>
+          <a-table :data-source="items" :columns="columns">
+              <template slot-scope="createdAt" slot="createdAt">
+                {{ createdAt | date("YYYY-MM-DD HH:mm:ss") }}
+              </template>
+              <template slot-scope="updatedAt" slot="updatedAt">
+                {{ updatedAt | date("YYYY-MM-DD HH:mm:ss") }}
+              </template>
+              <template slot-scope="row" slot="editBtn">
+                <a-button
+                    type="link"
+                    size="small"
+                    icon="delete"
+                    @click="remove(row._id)"
+                    style="color: red"
+                >删除
+                </a-button
+                >
+                <a-button
+                    type="link"
+                    size="small"
+                    icon="edit"
+                    @click="$router.push(`/articles/edit/${row._id}`)"
+                >编辑
+                </a-button
+                >
+              </template>
+          </a-table>
+        </a-card>
+      </a-col>
+    </a-row>
   </div>
 </template>
 
 <script>
+const columns = [
+  {
+    title: 'ID',
+    dataIndex: '_id',
+  },
+  {
+    title: '文章标题',
+    dataIndex: 'title',
+    class: 'font-semibold text-muted',
+    width: '200px',
+  },
+  {
+    title: '创建时间',
+    dataIndex: 'createdAt',
+    class: 'font-semibold text-muted',
+    scopedSlots: {customRender: 'createdAt'},
+  },
+  {
+    title: '最后更新时间',
+    dataIndex: 'updatedAt',
+    class: 'font-semibold text-muted',
+    scopedSlots: {customRender: 'updatedAt'},
+  },
+  {
+    title: '操作',
+    scopedSlots: {customRender: 'editBtn'},
+    width: 200
+  },
+];
 export default {
   data() {
     return {
       items: [],
+      columns
     };
   },
   methods: {
@@ -54,25 +84,17 @@ export default {
       this.items = res.data;
     },
     remove(id) {
-      this.$confirm("是否确定要删除这篇文章?", "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
-        type: "warning",
-      })
-        .then(async () => {
+      this.$confirm({
+        title: "提示", content: "是否确定要删除这篇文章?",
+        onOk: async () => {
           await this.$http.delete(`rest/articles/${id}`);
-          this.$message({
-            type: "success",
-            message: "删除成功!",
-          });
-          this.fetch();
-        })
-        .catch(() => {
-          this.$message({
-            type: "info",
-            message: "已取消删除",
-          });
-        });
+          this.$message.success("删除成功");
+          this.$router.go(0);
+        },
+        onCancel: () => {
+          this.$message.info("取消删除");
+        }
+      });
     },
   },
   created() {

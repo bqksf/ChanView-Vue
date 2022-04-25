@@ -5,7 +5,7 @@
 
 			<a-col :span="24" :md="24" class="mb-24">
 
-				<CardBillingInfo></CardBillingInfo>
+				<CardNewsInfo></CardNewsInfo>
 
 			</a-col>
 		</a-row>
@@ -15,17 +15,18 @@
 
 <script>
 
-	import CardBillingInfo from "../components/Cards/CardBillingInfo"
+	import CardNewsInfo from "../components/Cards/CardNewsInfo.vue";
 
 
 	export default ({
 		components: {
-			CardBillingInfo,
+      CardNewsInfo,
 		},
 		data() {
 			return {
 			}
 		},
+
 	})
 
 </script>

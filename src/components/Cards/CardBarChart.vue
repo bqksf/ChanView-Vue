@@ -3,31 +3,11 @@
 	<!-- Active Users Card -->
 	<a-card :bordered="false" class="dashboard-bar-chart">
 		<chart-bar :height="220" :data="barChartData"></chart-bar>
+
 		<div class="card-title">
-			<h6>Active Users</h6>
-			<p>than last week <span class="text-success">+23%</span></p>
+			<h6>关键词统计</h6>
+			<p>出现频率最高 {{name}}<span class="text-success">{{num}}</span></p>
 		</div>
-		<div class="card-content">
-			<p>We have created multiple options for you to put together and customise into pixel perfect pages.</p>
-		</div>
-		<a-row class="card-footer" type="flex" justify="center" align="top">
-			<a-col :span="6">
-				<h4>3,6K</h4>
-				<span>Users</span>
-			</a-col>
-			<a-col :span="6">
-				<h4>2m</h4>
-				<span>Clicks</span>
-			</a-col>
-			<a-col :span="6">
-				<h4>$772</h4>
-				<span>Sales</span>
-			</a-col>
-			<a-col :span="6">
-				<h4>82</h4>
-				<span>Items</span>
-			</a-col>
-		</a-row>
 	</a-card>
 	<!-- Active Users Card -->
 
@@ -57,8 +37,20 @@
 						maxBarThickness: 20,
 					}, ],
 				},
+        name: null,
+        num: null,
 			}
 		},
-	})
+    methods:{
+      async getData(){
+        const res = await this.$http.get("rest/segmentation/getWord");
+        this.name = res.data.col[8];
+        this.num = res.data.data[8];
+        }
+    },
+    created() {
+      this.getData();
+    }
+  })
 
 </script>

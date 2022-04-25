@@ -1,26 +1,19 @@
 <template>
   <div>
-    <m-top-handle title="昵称" content="评论"></m-top-handle>
-    <el-table :data="tableData" border>
-      <el-table-column type="index" label="序号" width="50"></el-table-column>
-      <el-table-column prop="_id" label="id"></el-table-column>
-      <el-table-column prop="avatarImg" label="头像">
+    <a-table :data="tableData" border>
+      <a-table-column type="index" label="序号" width="50"></a-table-column>
+      <a-table-column prop="_id" label="id"></a-table-column>
+      <a-table-column prop="nickName" label="昵称"></a-table-column>
+      <a-table-column prop="content" label="留言"></a-table-column>
+      <a-table-column label="操作" width="90">
         <template slot-scope="scope">
-          <img :src="scope.row.avatarImg" alt height="50" />
-        </template>
-      </el-table-column>
-      <el-table-column prop="nickName" label="昵称"></el-table-column>
-      <el-table-column prop="byAiteName" label="艾特谁"></el-table-column>
-      <el-table-column prop="content" label="留言"></el-table-column>
-      <el-table-column label="操作" width="90">
-        <template slot-scope="scope">
-          <el-button type="text" size="small">回复</el-button>
-          <el-button type="text" size="small" @click="deleteHandle(scope.row)"
-            >删除</el-button
+          <a-button type="text" size="small">回复</a-button>
+          <a-button type="text" size="small" @click="deleteHandle(scope.row)"
+            >删除</a-button
           >
         </template>
-      </el-table-column>
-    </el-table>
+      </a-table-column>
+    </a-table>
   </div>
 </template>
 <script>
@@ -48,16 +41,10 @@ export default {
         .then(async () => {
           await this.$http.delete(`/rest/comments/${data._id}`);
           this.getList();
-          this.$message({
-            type: "success",
-            message: "删除成功!",
-          });
+          this.$message.success("删除成功");
         })
         .catch(() => {
-          this.$message({
-            type: "info",
-            message: "已取消删除",
-          });
+          this.$message.info("已取消删除");
         });
     },
   },

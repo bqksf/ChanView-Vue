@@ -82,11 +82,19 @@
 			<!-- / Collapsible Navigation Menu For Small Screens -->
 
 		</div>
-		<div class="header-col header-btn">
+		<div class="header-col header-btn" v-if="username === ''">
 			<a-button type="primary" shape="round"><router-link to="/sign-in" @click="e => e.preventDefault()">
         <span>登录</span>
       </router-link></a-button>
 		</div>
+    <div class="header-col header-btn" v-else>
+      <a-button type="primary" shape="round" v-if="VIP !== ''"><router-link to="/gas-tracker" @click="e => e.preventDefault()">
+        <span>仪表盘</span>
+      </router-link></a-button>
+      <a-button type="primary" shape="round" disabled v-else>
+        <span>请先付费</span>
+      </a-button>
+    </div>
 	</a-layout-header>
 	<!-- / Layout Header ( Navbar ) -->
 
@@ -100,9 +108,11 @@
 				// Collapse navigation value.
 				// Binded model property for "Collapsible Navigation Menu" collapsed status .
 				collapseNav: 0,
+        username:localStorage.getItem('username') || "",
+        VIP:localStorage.getItem('vip') || "",
 			}
 		},
-	})
+  })
 
 </script>
 

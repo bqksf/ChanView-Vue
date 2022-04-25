@@ -1,16 +1,3 @@
-/*
-=========================================================
-Muse - Vue Ant Design Dashboard - v1.0.0
-=========================================================
-
-Product Page: https://www.creative-tim.com/product/vue-ant-design-dashboard
-Copyright 2021 Creative Tim (https://www.creative-tim.com)
-Coded by Creative Tim
-
-=========================================================
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. 
-*/
-
 import Vue from 'vue'
 import Antd from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
@@ -19,18 +6,43 @@ import DefaultLayout from './layouts/Default.vue'
 import DashboardLayout from './layouts/Dashboard.vue'
 import router from './router'
 // import './plugins/click-away'
+import http from './plugins/http'
+import httpU from './plugins/httpU'
+import store from './store'
+import './plugins/filters'
 
+import 'nprogress/nprogress.css'
 import './scss/app.scss';
 
 Vue.use(Antd);
 
 Vue.config.productionTip = false
 
-// Adding template layouts to the vue components.
+Vue.prototype.$http = http
+Vue.prototype.$httpU = httpU
+
+//添加layout
 Vue.component("layout-default", DefaultLayout);
 Vue.component("layout-dashboard", DashboardLayout);
 
+//全局属性
+Vue.mixin({
+  computed: {
+    uploadUrl() {
+      return this.$http.defaults.baseURL + "/upload";
+    }
+  },
+  methods: {
+    getAuthHeaders() {
+      return {
+        Authorization: `Bearer ${localStorage.token || ""}`
+      };
+    }
+  }
+});
+
 new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount('#app')

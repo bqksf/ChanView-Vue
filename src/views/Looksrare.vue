@@ -4,7 +4,7 @@
     <a-row :gutter="24" type="flex" align="stretch">
       <a-col :span="24" :lg="24" class="mb-24">
 
-        <CardLineChart></CardLineChart>
+        <CardLineChart8></CardLineChart8>
 
       </a-col>
 
@@ -15,7 +15,7 @@
     <a-row :gutter="24" type="flex" align="stretch">
       <a-col :span="24" :lg="24" class="mb-24">
 
-        <CardLineChart2></CardLineChart2>
+        <CardLineChart9></CardLineChart9>
 
       </a-col>
 
@@ -29,15 +29,15 @@
 <script>
 
 // Line chart for "Sales Overview" card.
-import CardLineChart from '../components/Cards/CardLineChart' ;
-import CardLineChart2 from '../components/Cards/CardLineChart2' ;
+import CardLineChart8 from '../components/Cards/CardLineChart8' ;
+import CardLineChart9 from '../components/Cards/CardLineChart9' ;
 
 
 export default {
   name: "GasTracker",
   components: {
-    CardLineChart,
-    CardLineChart2,
+    CardLineChart8,
+    CardLineChart9,
   },
   data() {
     return {
